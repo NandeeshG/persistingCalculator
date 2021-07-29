@@ -287,14 +287,18 @@
 
         var cleanData = function(){
             //remove leading zeroes
-            let nonZer = 0;
+            let nonZer = -1;
             for(let i=0; i<DATA.innerHTML.length; ++i){
                 if(DATA.innerHTML[i] !== '0'){
                     nonZer = i;
                     break;
                 }
             }
-            DATA.innerHTML = DATA.innerHTML.substr(nonZer);
+	    if(nonZer===-1){
+		DATA.innerHTML = "0";
+	    }else{
+		DATA.innerHTML = DATA.innerHTML.substr(nonZer);
+	    }
 
             //except for the case when now first char is not numeric
             if( DATA.innerHTML.length>0 
