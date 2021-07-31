@@ -1,25 +1,3 @@
-//SET ENV
-const ENV = 'PROD' //DEV or PROD
-
-//---- Sidebar script
-const Sidebar = document.getElementById('INFO')
-const questionMark = document.getElementById('QSTMARK')
-var toggleSidebar = function () {
-    showSidebar = !showSidebar
-    Sidebar.style.display = showSidebar ? 'block' : 'none'
-    questionMark.innerHTML = showSidebar ? 'x' : '?'
-}
-let showSidebar = true
-toggleSidebar()
-window.onload = function (e) {
-    questionMark.style.animationName = 'highlight'
-    questionMark.style.animationDuration = '2s'
-    questionMark.style.animationIterationCount = '2'
-}
-questionMark.addEventListener('animationend', (e) => {
-    e.target.style.animationName = ''
-})
-
 //---- Calc script
 const DATA = document.querySelector('#ROW1>h1')
 const ANSF = document.querySelector('#ANS_TEXT')
