@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.xxLarge {
+    font-size: 3rem;
+    border-radius: 5%;
+}
+
+#CALC {
+    width: 80%;
+    min-width: 330px;
+    max-width: 500px;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    border: 5px solid black;
+}
+
+#ROW1 {
+    flex-flow: column wrap;
+    align-content: center;
+}
+
+#ROW1 > h1 {
+    border: 2px solid black;
+    padding: 1em 0em 0.25em 0.5em;
+}
+
+#ANS_DIV {
+    border: 1px dotted red;
+    width: 100%;
+    height: 2.5em;
+    margin-bottom: 1em;
+}
+
+#ANS_TEXT {
+    padding: 0em 0em;
+    margin: 0.2em 0.5em;
+    color: darkgreen;
+    font-size: 1.5em;
+}
+
+#ANS_TEXT.active {
+    animation-name: animationAns;
+    animation-duration: 200ms;
+}
+
+#ROW1 > h3 {
+    margin: 0rem 1rem 0rem 1rem;
+    padding: 0;
+    text-align: center;
+}
+
+@keyframes animationAns {
+    from {
+        margin-left: 50%;
+    }
+}
+
+table button {
+    cursor: pointer;
+    margin: 0.1em 0.1em;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100%;
+    min-height: 4rem;
+    border-radius: 10%;
+}
+
+#INFO {
+    width: 80%;
+    min-width: 330px;
+    max-width: 500px;
+    padding: 0.5rem 2rem;
+}
+
+#TOGGLEDIV {
+    width: 80%;
+    min-width: 330px;
+    max-width: 500px;
+    padding: 0.5rem 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#QSTMARK {
+    cursor: pointer;
+    font-size: 0.9em;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 30%;
+}
+
+@keyframes highlight {
+    0% {
+        font-size: 0.9em;
+        background-color: antiquewhite;
+        box-shadow: 0px 0px 0px aqua;
+    }
+
+    50% {
+        font-size: 1.3em;
+        background-color: aqua;
+        box-shadow: 0px 0px 20px aqua;
+    }
+
+    100% {
+        font-size: 0.9em;
+        background-color: antiquewhite;
+        box-shadow: 0px 0px 0px aqua;
+    }
+}
+
+@media (max-width: 600px) {
+    #CALC {
+        width: 100%;
+        height: 100%;
+    }
+
+    #TOGGLEDIV {
+        width: 100%;
+        height: 100%;
+    }
+
+    #INFO {
+        width: 100%;
+        height: 100%;
+    }
+}
