@@ -1,6 +1,4 @@
 //---- Calc script
-const DATA = document.querySelector('#ROW1>h1')
-const ANSF = document.querySelector('#ANS_TEXT')
 const precedence = ['^', '/', '*', '+', '-']
 const allowedActions = [
     '+',

@@ -6,16 +6,19 @@
         <link rel="stylesheet" href="style.css">
     </head>
 <body> 
+
     <div id="CALC">
         <div id="ROW1">
-            <h3>PERSISTING CALCULATOR</h3>
-            <h1></h1>
-            <div id="ANS_DIV"><!-- style="display: flex; flex-flow: row nowrap; justify-content: space-between;">-->
+            <h3 id="TITLE_TEXT">PERSISTING CALCULATOR</h3>
+            <h1 id="EQN_TEXT"></h1>
+            <div id="ANS_DIV">
                 <h2 id="ANS_TEXT"></h2>
-                <!--<button>COPY</button>-->
+                <button id="COPY_BTN" onclick="copyAns()">
+                    <img src="./copy-24.png" id="COPY_BTN_IMG"/>
+                </button>
             </div>
         </div>
-        <table style="width: 100%;">
+        <table>
             <tr>
                 <td><button onclick="append(1)">1</button>     </td>
                 <td><button onclick="append(2)">2</button>     </td>
@@ -37,7 +40,7 @@
                 <td><button onclick="append(8)">8</button>    </td>
                 <td><button onclick="append(9)">9</button>    </td>
                 <td><button onclick="action('*')">*</button>  </td>
-                <td><button onclick="action('-')">-</button>    </td>
+                <td><button onclick="action('-')" class="xxLarge">-</button>    </td>
                 <td><button onclick="action('+')">+</button>  </td>
             <tr>
                 <td><button onclick="action('.')">.</button>    </td>
@@ -47,6 +50,7 @@
             </tr>
         </table>
     </div>
+
     <div id="TOGGLEDIV">
         <button onclick="toggleSidebar()" id="QSTMARK">?</button>
     </div>

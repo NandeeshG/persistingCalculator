@@ -1,6 +1,4 @@
 //---- Sidebar script
-const Sidebar = document.getElementById('INFO')
-const questionMark = document.getElementById('QSTMARK')
 var toggleSidebar = function () {
     showSidebar = !showSidebar
     Sidebar.style.display = showSidebar ? 'block' : 'none'
@@ -16,3 +14,21 @@ window.onload = function (e) {
 questionMark.addEventListener('animationend', (e) => {
     e.target.style.animationName = ''
 })
+
+//---- Copy button
+COPY_BTN.addEventListener('animationend', (e) => {
+    e.target.style.animationName = ''
+})
+var copyAns = function () {
+    var copyText = ANSF.innerText
+    navigator.clipboard.writeText(copyText).then(
+        function (e) {
+            if (ENV === 'DEV') console.log('Copy successful', e)
+            COPY_BTN.style.animationName = 'copyHighlight'
+            COPY_BTN.style.animationDuration = '0.8s'
+        },
+        function (e) {
+            if (ENV === 'DEV') console.log('Copy failed', e)
+        }
+    )
+}

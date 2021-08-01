@@ -2,8 +2,8 @@ body {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    height: 99%; /*making these 100% makes scroll bar visible*/
+    width: 99%;
 }
 
 .xxLarge {
@@ -15,27 +15,48 @@ body {
     width: 80%;
     min-width: 330px;
     max-width: 500px;
-    padding: 2rem 2rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    border: 5px solid black;
+    border-radius: 10%;
     display: flex;
     flex-flow: column wrap;
-    border: 5px solid black;
+    align-items: center;
 }
 
 #ROW1 {
+    width: 100%;
+    display: flex;
     flex-flow: column wrap;
-    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-#ROW1 > h1 {
-    border: 2px solid black;
-    padding: 1em 0em 0.25em 0.5em;
+#TITLE_TEXT {
+    margin: 0rem 1rem 0rem 1rem;
+    padding: 0;
+    text-align: center;
+    color: orange;
+    font-size: x-large;
+}
+
+#EQN_TEXT {
+    width: 90%;
+    padding: 0.2em 0.2em;
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 5000px;
 }
 
 #ANS_DIV {
-    border: 1px dotted red;
-    width: 100%;
+    border: 2px solid black;
+    width: 90%;
     height: 2.5em;
     margin-bottom: 1em;
+    border-radius: 5000px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
 
 #ANS_TEXT {
@@ -50,26 +71,68 @@ body {
     animation-duration: 200ms;
 }
 
-#ROW1 > h3 {
-    margin: 0rem 1rem 0rem 1rem;
-    padding: 0;
-    text-align: center;
-}
-
 @keyframes animationAns {
     from {
         margin-left: 50%;
     }
 }
 
+#COPY_BTN {
+    cursor: pointer;
+    border-radius: 5000px;
+    border: 1px solid gray;
+    background-color: rgb(251, 251, 231);
+}
+#COPY_BTN:hover {
+    background-color: rgb(238, 238, 211);
+}
+#COPY_BTN:active {
+    background-color: rgb(238, 238, 211);
+    /*box-shadow: 0px 0px 5px 2px orange;*/
+}
+#COPY_BTN > img {
+    height: 1.5em;
+    width: 1.5em;
+    padding: 2px 2px;
+}
+@keyframes copyHighlight {
+    from {
+        box-shadow: 0px 0px 5px 10px orange;
+    }
+}
+
+table {
+    width: 90%;
+    border: table;
+    /*background-color: gainsboro;*/
+}
+
+td {
+    margin: 0;
+    padding: 0;
+}
+
 table button {
     cursor: pointer;
-    margin: 0.1em 0.1em;
+    margin: 0em 0em;
     font-size: 2rem;
     font-weight: bold;
     width: 100%;
     min-height: 4rem;
-    border-radius: 10%;
+    border: 0;
+    border-radius: 15%;
+    background-color: beige;
+    /*
+    border: 3px solid grey;
+    */
+}
+
+table button:hover {
+    background-color: orange;
+}
+
+table button:active {
+    background-color: darkorange;
 }
 
 #INFO {
@@ -101,19 +164,19 @@ table button {
     0% {
         font-size: 0.9em;
         background-color: antiquewhite;
-        box-shadow: 0px 0px 0px aqua;
+        box-shadow: 0px 0px 0px orange;
     }
 
     50% {
         font-size: 1.3em;
-        background-color: aqua;
-        box-shadow: 0px 0px 20px aqua;
+        background-color: orange;
+        box-shadow: 0px 0px 20px orange;
     }
 
     100% {
         font-size: 0.9em;
         background-color: antiquewhite;
-        box-shadow: 0px 0px 0px aqua;
+        box-shadow: 0px 0px 0px orange;
     }
 }
 
