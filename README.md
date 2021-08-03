@@ -6,7 +6,7 @@ A calculator that remembers previous answers and allows you to type the whole eq
 
 1. ~~Add copy button~~
 2. Allow to edit Equation with cursor
-3. Add multiple decimal check
+3. ~~Add multiple decimal check~~
 4. Display cursor
    - Perform Jest tests
    - Iron out clean and stack processes

@@ -1,4 +1,5 @@
-//---- Calc script
+const INV_INP = 'Invalid Input!'
+const NO_EVAL = 'Cannot Evaluate Stack!'
 const precedence = ['^', '/', '*', '+', '-']
 const allowedActions = [
     '+',
@@ -27,7 +28,7 @@ init()
 var precedenceOf = function (ch) {
     for (let i = 0; i < precedence.length; ++i)
         if (precedence[i] === ch) return i
-    throw 'Unknown data!'
+    throw INV_INP
 }
 
 var append = function (num) {
@@ -121,7 +122,12 @@ var performCalc = function () {
             ) {
                 runningNum += dataog[i]
             } else {
-                if (runningNum.length > 0) data.push(parseFloat(runningNum))
+                if (runningNum.length > 0) {
+                    var countDecimal = 0
+                    for (const ch of runningNum) countDecimal += ch === '.'
+                    if (countDecimal <= 1) data.push(parseFloat(runningNum))
+                    else throw INV_INP
+                }
                 runningNum = ''
                 if (dataog[i] == 'A') {
                     data.push(ansVal())
@@ -143,9 +149,9 @@ var performCalc = function () {
                         actionStack[actionStack.length - 1] != '('
                     ) {
                         let op2 = numStack.pop()
-                        if (op2 === undefined) throw 'Cannot evaluate stack'
+                        if (op2 === undefined) throw NO_EVAL
                         let op1 = numStack.pop()
-                        if (op1 === undefined) throw 'Cannot evaluate stack'
+                        if (op1 === undefined) throw NO_EVAL
                         let oper = actionStack.pop()
                         if (ENV === 'DEV')
                             console.log('EVALUATING(resolver) ', op1, oper, op2)
@@ -193,9 +199,9 @@ var performCalc = function () {
                             precedenceOf(data[i])
                     ) {
                         let op2 = numStack.pop()
-                        if (op2 === undefined) throw 'Cannot evaluate stack'
+                        if (op2 === undefined) throw NO_EVAL
                         let op1 = numStack.pop()
-                        if (op1 === undefined) throw 'Cannot evaluate stack'
+                        if (op1 === undefined) throw NO_EVAL
                         let oper = actionStack.pop()
                         if (ENV === 'DEV')
                             console.log('EVALUATING ', op1, oper, op2)
@@ -243,9 +249,9 @@ var performCalc = function () {
 
         while (actionStack.length > 0) {
             let op2 = numStack.pop()
-            if (op2 === undefined) throw 'Cannot evaluate stack'
+            if (op2 === undefined) throw NO_EVAL
             let op1 = numStack.pop()
-            if (op1 === undefined) throw 'Cannot evaluate stack'
+            if (op1 === undefined) throw NO_EVAL
             let oper = actionStack.pop()
             if (ENV === 'DEV') console.log('FINALISING ', op1, oper, op2)
             switch (oper) {
